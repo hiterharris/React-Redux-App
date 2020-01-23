@@ -1,7 +1,7 @@
 const initialState = {
     buttonClicked: false,
     isLoading: false,
-    businessList: [],
+    restaurantList: [],
     error: "",
 }
 
@@ -15,7 +15,7 @@ export const reducer = (state = initialState, action) => {
         case 'FETCH_RESTAURANT_LIST':
         return {
             ...state,
-            businessList: action.payload
+            restaurantList: action.payload
         }
         default:
             return state;

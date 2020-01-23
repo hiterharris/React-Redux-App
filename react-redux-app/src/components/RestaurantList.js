@@ -1,32 +1,40 @@
 import React from 'react';
 import '../App.css';
 
-import Restaurant from './Restaurant';
-
 import {connect} from 'react-redux';
 import {buttonClicked, fetchRestaurantList} from '../actions';
 
 const RestaurantList = props => {
-    console.log(props.fetchRestaurantList());
-  return (
-    <div className="RestaurantList">
-      <Restaurant />
-      <button onClick={props.buttonClicked}>Update State</button>
-    </div>
-  );
-}
+    props.fetchRestaurantList();
+    const restaurant = props.restaurantList.map((restaurant) => {
+        return (
+            <div>
+                <h1>{restaurant.name}</h1>
+                <p>{restaurant.categories[0].title}</p>
+                <p>{restaurant.rating}</p>
+                <p>{restaurant.reviews}</p>
+                <img src={restaurant.image_url} />
+            </div>
+        );
+    });
 
-const mapStateToProps = state => {
-    console.log(state);
-    return {
-        buttonClicked: state.buttonClicked,
-        isLoading: state.isLoading,
-        businessList: state.businessList,
-        error: state.error,
+    return (
+            <div className="RestaurantList">
+                {restaurant.splice(1)}
+            </div>
+        );
     }
-}
+
+    const mapStateToProps = state => {
+        return {
+            buttonClicked: state.buttonClicked,
+            isLoading: state.isLoading,
+            restaurantList: state.restaurantList,
+            error: state.error,
+        }
+    }
 
 export default connect(
-mapStateToProps,
-{buttonClicked, fetchRestaurantList}
+    mapStateToProps,
+    {buttonClicked, fetchRestaurantList}
 )(RestaurantList);
