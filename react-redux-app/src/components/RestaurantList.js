@@ -2,11 +2,10 @@ import React from 'react';
 import '../App.css';
 
 import {connect} from 'react-redux';
-import {buttonClicked, fetchRestaurantList} from '../actions';
+import {fetchRestaurantList} from '../actions';
 
 const RestaurantList = props => {
     props.fetchRestaurantList();
-
     return (
             <div className="RestaurantList">
                 {props.restaurantList.splice(1).map((restaurant) => {
@@ -28,16 +27,16 @@ const RestaurantList = props => {
         );
     }
 
-    const mapStateToProps = state => {
-        return {
-            buttonClicked: state.buttonClicked,
-            isLoading: state.isLoading,
-            restaurantList: state.restaurantList,
-            error: state.error,
-        }
+const mapStateToProps = state => {
+    return {
+        buttonClicked: state.buttonClicked,
+        isLoading: state.isLoading,
+        restaurantList: state.restaurantList,
+        error: state.error,
     }
+}
 
 export default connect(
     mapStateToProps,
-    {buttonClicked, fetchRestaurantList}
+    {fetchRestaurantList}
 )(RestaurantList);

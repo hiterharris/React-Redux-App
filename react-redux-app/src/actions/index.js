@@ -1,10 +1,6 @@
 import axios from 'axios';
 import {useEffect} from 'react';
 
-export const buttonClicked = () => {
-    return { type: 'BUTTON_CLICKED' };
-  };
-
 export const fetchRestaurantList = () => dispatch => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = "https://api.yelp.com/v3/businesses/search";
@@ -22,6 +18,5 @@ export const fetchRestaurantList = () => dispatch => {
         .then(response => {
             dispatch({ type: 'FETCH_RESTAURANT_LIST', payload: response.data.businesses});
         })
-    }, [dispatch])
-
-}
+    }, [dispatch]);
+};
