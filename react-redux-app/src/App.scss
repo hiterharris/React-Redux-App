@@ -51,3 +51,31 @@
       monospace;
   }
   
+body {
+    background-color: #BE1F20;
+  }
+
+  .RestaurantList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+    font-family: 'Avenir';
+
+    .restaurant {
+      width: 40%;
+      border-radius: 20px;
+      background-color: #c98d8d;
+      margin: 2%;
+      padding: 2%;
+
+      .rating {
+        display: flex;
+        justify-content: center;
+      }
+
+      img {
+        width: 90%;
+      }
+    }
+  }
