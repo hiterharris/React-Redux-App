@@ -17,7 +17,7 @@ const RestaurantList = props => {
                                 <p>{restaurant.categories[0].title}</p>
                                 <div className='rating'>
                                     <p>Rating: {restaurant.rating}</p>
-                                    <p>({restaurant.review_count} reviews)</p>
+                                    <p>(    {restaurant.review_count} reviews)</p>
                                 </div>
                             </div>
                             <img src={restaurant.image_url} />
