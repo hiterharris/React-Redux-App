@@ -20,7 +20,17 @@ const RestaurantList = props => {
 
     return (
             <div className="RestaurantList">
-                {restaurant.splice(1)}
+                {props.restaurantList.splice(1).map((restaurant) => {
+                    return (
+                        <div>
+                            <h1>{restaurant.name}</h1>
+                            <p>{restaurant.categories[0].title}</p>
+                            <p>{restaurant.rating}</p>
+                            <p>{restaurant.reviews}</p>
+                            <img src={restaurant.image_url} />
+                        </div>
+                    );
+                })}
             </div>
         );
     }
