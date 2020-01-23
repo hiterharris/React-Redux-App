@@ -4,10 +4,10 @@ import '../App.css';
 import Restaurant from './Restaurant';
 
 import {connect} from 'react-redux';
-import {buttonClicked} from '../actions';
+import {buttonClicked, fetchRestaurantList} from '../actions';
 
 const RestaurantList = props => {
-    console.log(props);
+    console.log(props.fetchRestaurantList());
   return (
     <div className="RestaurantList">
       <Restaurant />
@@ -28,5 +28,5 @@ const mapStateToProps = state => {
 
 export default connect(
 mapStateToProps,
-{buttonClicked}
+{buttonClicked, fetchRestaurantList}
 )(RestaurantList);

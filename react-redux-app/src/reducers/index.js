@@ -12,6 +12,11 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 buttonClicked: !state.buttonClicked
             };
+        case 'FETCH_RESTAURANT_LIST':
+        return {
+            ...state,
+            businessList: action.payload
+        }
         default:
             return state;
     }
