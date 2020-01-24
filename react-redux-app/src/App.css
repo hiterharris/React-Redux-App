@@ -50,6 +50,10 @@ body {
   background-color: #BE1F20;
 }
 
+.App img {
+  width: 20%;
+}
+
 .RestaurantList {
   display: flex;
   flex-wrap: wrap;
